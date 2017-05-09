@@ -1,0 +1,10 @@
+{
+  "name": "bootcamp_day_1",
+  "version": "1.0.0",
+  "description": "This is a repo with three branches for each project carried out today.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Idrees Ibraheem",
+  "license": "ISC"
+}
