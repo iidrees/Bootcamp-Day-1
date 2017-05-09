@@ -6,5 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Idrees Ibraheem",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^2.6.0"
+  }
 }
