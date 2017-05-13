@@ -1,55 +1,65 @@
 class GTBankAccount {
 		constructor(holderName, accNumber, address,minimumBalance, currentBalance) {
 			this._holderName = holderName;
-			this_accNumber = accNumber;
+			this._accNumber = accNumber;
 			this._address = address;
-			this_currentBalance = currentBalance;
-			this_minimumBalance = minimumBalance;
+			this._minimumBalance = minimumBalance;
+			this._currentBalance = currentBalance;
+			
 		}
-	    getFullAccountDetails() {
-		    return '${this._holderName} ${this.address} ${this.address} ${this.minimumBalance} ${this.currentBalance} ';
-		}
-	}
-
-	getMinBalanceDetails() {
-		return this.currentBalance;
-	}
-
-	accDeposit(depositeAmt) {
-		return 'Thank you for banking with us, your current Balance now is ' + (this.currentBalance +=  depositAmt);
+	    get fullAccountDetails() {
+		     let details = {
+		       name: this._holderName,
+		       accNumber: this._accNumber,
+		       address: this._address,
+		       minBal: this._minimumBalance,
+		       currBal: this._currentBalance
+		     };
+		     return details;
+		  }
+      get minBalanceDetails() {
+        return this._currentBalance;
+      }
+      
+      
+      accDeposit(depositAmt) {
+        return 'Thank you for banking with us, your current Balance now is ' + (this._currentBalance +=  depositAmt);
 		
 	}
 
 
-	accWithdrawal(amount) {
-		if (amount < this.minimumBalance) {
-			return 'Please your account balance is insufficient';
-		} else {
-			return 'Thank you for banking with us, your current Balance now is ' + (this.currentBalance -=  amount);
-		}
-		
+      accWithdrawal(amount) {
+    	  if (amount > this._currentBalance) {
+    			return 'Please your account balance is insufficient';
+    		} else {
+    			return 'Thank you for banking with us, your current Balance now is ' + (this._currentBalance -=  amount);
+    		}
+    	}
 	}
 
-	class GTSavingsAccount extends GTBankAccount {
+class GTSavingsAccount extends GTBankAccount {
 		constructor(holderName, accNumber, address,minimumBalance, currentBalance) {
 			super(holderName, accNumber, address,minimumBalance, currentBalance);
-			this._interestCapitalised = interestPerMonth;
-			this.savingsAccountHolders = [];
+			
 		}
 
 		addAccountHolders(GTBankAccount) {
-			this.savingsAccountHolders.push(GTBankAccount);
+		  let savingsAccountHolders = [];
+			savingsAccountHolders.push(GTBankAccount);
+			return savingsAccountHolders;
 		}
+		
 
 	}
 
-	class GTCurrentAccount extends GTBankAccount {
+class GTCurrentAccount extends GTBankAccount {
 		constructor (holderName, accNumber, address,minimumBalance, currentBalance) {
 			super(holderName, accNumber, address,minimumBalance, currentBalance);
-			this.currentAccountHolders = [];
+			
 		}
 
 		addAccountHolders(GTBankAccount) {
+		  let currentAccountHolders = [];
 			this.currentAccountHolders.push(GTBankAccount);
 		}
-	}
+}
